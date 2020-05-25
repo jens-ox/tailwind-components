@@ -1,1 +1,1 @@
-import './components/test-component'
+import './components/menu'
