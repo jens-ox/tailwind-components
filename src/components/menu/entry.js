@@ -1,7 +1,7 @@
 import { html, component } from 'haunted'
 import './link'
 
-const baseClass = 'absolute -ml-4 mt-3 transform-all px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'
+const baseClass = 'absolute -ml-4 mt-3 transform transition-all px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'
 
 function Entry ({ active, name, entries, footerLinks }) {
   const event = new CustomEvent('toggle')
@@ -14,7 +14,7 @@ function Entry ({ active, name, entries, footerLinks }) {
       class="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
       <span>${name}</span>
       <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
-      <svg class=${`${active ? 'text-gray-600' : 'text-gray-400'} h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150`} fill="currentColor" viewBox="0 0 20 20">
+      <svg class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
       </svg>
     </button>
@@ -26,8 +26,8 @@ function Entry ({ active, name, entries, footerLinks }) {
       Leaving: "transition ease-in duration-150"
     -->
     <div class=${`${baseClass} ${active
-      ? 'duration-200 ease-out opacity-100 translate-y-0'
-      : 'duration-150 ease-in opacity-0 translate-y-1'}`}>
+      ? 'duration-200 ease-out opacity-100 translate-y-0 visible'
+      : 'duration-200 ease-in opacity-0 translate-y-1 invisible'}`}>
       <div class="rounded-lg shadow-lg">
         <div class="rounded-lg shadow-xs overflow-hidden">
           <div class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
@@ -37,11 +37,7 @@ function Entry ({ active, name, entries, footerLinks }) {
               name="Analytics"
               description="Get a better understanding of where your traffic is coming from."
               icon="/src/assets/img/analytics.svg"
-            >
-              <svg stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-              </svg>
-            </tw-menu-link>
+            ></tw-menu-link>
 
             <a href="#" class="-m-3 p-3 flex items-start space-x-4 rounded-lg hover:bg-gray-100 transition ease-in-out duration-150">
               <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" stroke="currentColor" fill="none" viewBox="0 0 24 24">
