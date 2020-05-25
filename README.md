@@ -22,3 +22,34 @@ Currently, each component includes the CDN version of Tailwind, which is kind of
 ### Building as a library
 
 Purging out unused CSS from the components might turn out to be quite difficult. I don't know if there's any tooling for this.
+
+### Handling icons
+
+The two ways of passing data to a UI library -- through attributes/properties or through slots -- are both kinda awkward for passing icons. For example, a menu entry might look something like this as an object:
+
+```js
+{
+  title: 'Analytics',
+  description: 'Get a better understanding of where your traffic is coming from.',
+  link: '#',
+  icon: '/src/assets/img/analytics.svg'
+}
+```
+
+This makes sense, but now styling the SVG is hard -- even with `stroke="currentColor"` set in the SVG file, the color won't be inherited, as the embedded SVG is its own document.
+
+The alternative would be to use components with a slot:
+
+```html
+<menu-entry
+  title="Analytics"
+  description="Get a better understanding of where your traffic is coming from."
+  link="#"
+>
+  <svg>
+    ...
+  </svg>
+</menu-entry>
+```
+
+This makes the markup way harder to maintain.
