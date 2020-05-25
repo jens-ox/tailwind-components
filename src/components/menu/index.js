@@ -272,9 +272,7 @@ const Menu = () => {
         </div>
       </div>
 
-      ${mobileOpen ? html`
-        <tw-menu-mobile @close=${() => setMobileOpen(false)} />
-      ` : ''}
+      <tw-menu-mobile .open=${mobileOpen} @close=${() => setMobileOpen(false)} />
     </div>
   `
 }
