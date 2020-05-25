@@ -11,3 +11,14 @@ git clone [repo] && cd [repo]
 npm install # or yarn
 npm run dev # or yarn dev
 ```
+
+## Pain Points and Future Work
+
+### Shared Styles
+
+The usage of shared CSS in Web Components -- see [this article from 2016](https://www.smashingmagazine.com/2016/12/styling-web-components-using-a-shared-style-sheet/), apparently not too much has changed since then, but I didn't really dig deep.
+Currently, each component includes the CDN version of Tailwind, which is kind of the worst way to use Tailwind I guess.
+
+### Building as a library
+
+Purging out unused CSS from the components might turn out to be quite difficult. I don't know if there's any tooling for this.
