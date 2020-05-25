@@ -1,5 +1,19 @@
 import { html, component, useState } from 'haunted'
 import './mobile'
+import './entry'
+
+const menuData = [{
+  name: 'Solutions',
+  entries: [{
+    name: 'Analytics',
+    description: 'Get a better understanding of where your traffic is coming from.',
+    icon: '/src/assets/img/analytics.svg'
+  }],
+  footerLinks: [{
+    name: 'Watch Demo',
+    icon: '/src/assets/img/watch-demo.svg'
+  }]
+}]
 
 const Menu = () => {
   const [active, setActive] = useState(-1)
@@ -23,9 +37,11 @@ const Menu = () => {
             </button>
           </div>
           <nav class="hidden md:flex space-x-10">
+            <tw-menu-entry name="Teest" .active=${active === 0} @toggle=${() => setActive(active === 0 ? -1 : 0)}></tw-menu-entry>
+
             <div class="relative">
               <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-              <button @click=${() => setActive(active === 0 ? -1 : 0)} type="button" class="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
+              <button @click=${() => setActive(active === 1 ? -1 : 1)} type="button" class="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
                 <span>Solutions</span>
                 <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
                 <svg class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
@@ -43,7 +59,7 @@ const Menu = () => {
                   From: "opacity-100 translate-y-0"
                   To: "opacity-0 translate-y-1"
               -->
-              ${active === 0 ? html`
+              ${active === 1 ? html`
                 <div class="absolute -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                   <div class="rounded-lg shadow-lg">
                     <div class="rounded-lg shadow-xs overflow-hidden">
@@ -148,7 +164,7 @@ const Menu = () => {
 
             <div class="relative">
               <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-              <button @click=${() => setActive(active === 1 ? -1 : 1)} type="button" class="text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
+              <button @click=${() => setActive(active === 2 ? -1 : 2)} type="button" class="text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
                 <span>More</span>
                 <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
                 <svg class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
@@ -166,7 +182,7 @@ const Menu = () => {
                   From: "opacity-100 translate-y-0"
                   To: "opacity-0 translate-y-1"
               -->
-              ${active === 1 ? html`
+              ${active === 2 ? html`
                 <div class="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                   <div class="rounded-lg shadow-lg">
                     <div class="rounded-lg shadow-xs overflow-hidden">
