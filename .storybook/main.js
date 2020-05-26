@@ -1,3 +1,5 @@
+const copy = require('rollup-plugin-copy')
+
 module.exports = {
   stories: ['../stories/**/*.stories.{js,md,mdx}'],
   addons: [	
@@ -10,4 +12,11 @@ module.exports = {
     watch: true,
     open: true
   },
+  rollup: config => {
+    config.plugins.push(copy({
+      targets: [
+        { src: 'assets/**', dest: 'storybook-static/assets' }
+      ]
+    }))
+  }
 };

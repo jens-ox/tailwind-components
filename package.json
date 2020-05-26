@@ -32,8 +32,8 @@
     "format": "npm run format:eslint",
     "test": "tsc && karma start --coverage",
     "test:watch": "concurrently --kill-others --names tsc,karma \"npm run tsc:watch\" \"karma start --auto-watch=true --single-run=false\"",
-    "storybook": "concurrently --kill-others --names tsc,storybook \"npm run tsc:watch\" \"start-storybook -s ./assets --node-resolve --watch --open\"",
-    "storybook:build": "npm run build && build-storybook -s ./assets"
+    "storybook": "concurrently --kill-others --names tsc,storybook \"npm run tsc:watch\" \"start-storybook -s ./assets --node-resolve --watch --open --debug-webpack\"",
+    "storybook:build": "npm run build && build-storybook --debug-webpack --loglevel silly"
   },
   "dependencies": {
     "@iconfu/svg-inject": "^1.2.3",
@@ -57,6 +57,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
+    "rollup-plugin-copy": "^3.3.0",
     "tslib": "^1.11.0",
     "typescript": "~3.8.2"
   },
