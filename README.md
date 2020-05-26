@@ -4,6 +4,89 @@ First of all, this is more of an experiment. Obviously, only the Tailwind UI com
 
 In the [Full-Stack Developer job post](https://jobs.tailwindui.com/full-stack-developer), one of the tasks is building official Tailwind UI components for React and Vue. Why not leverage Web Components? [According to custom-elements-everywhere](https://custom-elements-everywhere.com/), Web Components are starting to become natively usable in most frontend frameworks (or libraries).
 
+## Trying it out
+
+The menu object from the example looks something like this:
+
+```js
+const menu = {
+  buttons: [{
+    name: 'Sign in',
+    link: '#',
+    type: 'secondary'
+  }, {
+    name: 'Sign up',
+    link: '#',
+    type: 'primary'
+  }],
+  entries: [{
+    name: 'Solutions',
+    entries: [{
+      name: 'Analytics',
+      description: 'Get a better understanding of where your traffic is coming from.',
+      icon: '/src/assets/img/analytics.svg',
+      link: '#'
+    } /* ... */],
+    footer: {
+      entries: [{
+        name: 'Watch Demo',
+        icon: '/src/assets/img/watch-demo.svg',
+        link: '#'
+      }, {
+        name: 'Contact Sales',
+        icon: '/src/assets/img/contact-sales.svg',
+        link: '#'
+      }]
+    }
+  }, {
+    name: 'Pricing',
+    link: '#'
+  }, {
+    name: 'Docs',
+    link: '#'
+  }, {
+    name: 'More',
+    entries: [{
+      name: 'Help Center',
+      description: 'Get all of your questions answered in our forums or contact support.',
+      icon: '/src/assets/img/help-center.svg',
+      link: '#'
+    } /* ... */],
+    footer: {
+      name: 'Recent Posts',
+      link: {
+        name: 'View all posts →',
+        link: '#'
+      },
+      entries: [{
+        name: 'Boost your conversion rate',
+        link: '#'
+      } /* ... */]
+    }
+  }]
+}
+```
+
+A native Web Component would then look something like this:
+
+```html
+<tw-menu .entries=${menu.entries} .buttons=${menu.buttons}></tw-menu>
+```
+
+The same would look like this in preact:
+
+```jsx
+<tw-menu entries={menuData.entries} buttons={menuData.buttons}></tw-menu>
+```
+
+Or in Vue:
+
+```vue
+<tw-menu :entries="menuData.entries" :buttons="menuData.buttons"></tw-menu>
+```
+
+See [the menu example](src/components/examples/menu.js) for the full code.
+
 ## Development
 
 ```bash
