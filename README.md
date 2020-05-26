@@ -53,3 +53,15 @@ The alternative would be to use components with a slot:
 ```
 
 This makes the markup way harder to maintain.
+
+**Possible solutions**:
+
+* ship icons with the library, like [Vuetify](https://vuetifyjs.com/en/customization/icons/) does
+* use a library like [SVGInject](https://github.com/iconfu/svg-inject) to inject svg files into the DOM
+* use the SVG as filter
+
+For now, SVGInject is used. A native solution would be nicer.
+
+### TypeScript
+
+UI libraries heavily rely on passing quite complex objects around. Having type support for those is nice.
