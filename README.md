@@ -76,13 +76,13 @@ A native Web Component would then look something like this:
 The same would look like this in preact:
 
 ```jsx
-<tw-menu entries={menuData.entries} buttons={menuData.buttons}></tw-menu>
+<tw-menu entries={menu.entries} buttons={menu.buttons}></tw-menu>
 ```
 
 Or in Vue:
 
 ```vue
-<tw-menu :entries="menuData.entries" :buttons="menuData.buttons"></tw-menu>
+<tw-menu :entries="menu.entries" :buttons="menu.buttons"></tw-menu>
 ```
 
 See [the menu example](src/components/examples/menu.js) for the full code.
