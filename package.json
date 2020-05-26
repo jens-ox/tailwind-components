@@ -32,8 +32,8 @@
     "format": "npm run format:eslint",
     "test": "tsc && karma start --coverage",
     "test:watch": "concurrently --kill-others --names tsc,karma \"npm run tsc:watch\" \"karma start --auto-watch=true --single-run=false\"",
-    "storybook": "concurrently --kill-others --names tsc,storybook \"npm run tsc:watch\" \"start-storybook --node-resolve --watch --open\"",
-    "storybook:build": "npm run build && build-storybook"
+    "storybook": "concurrently --kill-others --names tsc,storybook \"npm run tsc:watch\" \"start-storybook -s ./assets --node-resolve --watch --open\"",
+    "storybook:build": "npm run build && build-storybook -s ./assets"
   },
   "dependencies": {
     "@iconfu/svg-inject": "^1.2.3",
