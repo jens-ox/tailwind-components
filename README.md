@@ -24,17 +24,17 @@ const menu = {
     entries: [{
       name: 'Analytics',
       description: 'Get a better understanding of where your traffic is coming from.',
-      icon: '/src/assets/img/analytics.svg',
+      icon: '/assets/img/analytics.svg',
       link: '#'
     } /* ... */],
     footer: {
       entries: [{
         name: 'Watch Demo',
-        icon: '/src/assets/img/watch-demo.svg',
+        icon: '/assets/img/watch-demo.svg',
         link: '#'
       }, {
         name: 'Contact Sales',
-        icon: '/src/assets/img/contact-sales.svg',
+        icon: '/assets/img/contact-sales.svg',
         link: '#'
       }]
     }
@@ -49,7 +49,7 @@ const menu = {
     entries: [{
       name: 'Help Center',
       description: 'Get all of your questions answered in our forums or contact support.',
-      icon: '/src/assets/img/help-center.svg',
+      icon: '/assets/img/help-center.svg',
       link: '#'
     } /* ... */],
     footer: {
@@ -95,6 +95,42 @@ npm install # or yarn
 npm run dev # or yarn dev
 ```
 
+### Testing with Karma
+To run the suite of karma tests, run
+```bash
+npm run test
+```
+
+To run the tests in watch mode (for <abbr title="test driven development">TDD</abbr>, for example), run
+
+```bash
+npm run test:watch
+```
+
+### Demoing with Storybook
+To run a local instance of Storybook for your component, run
+```bash
+npm run storybook
+```
+
+To build a production version of Storybook, run
+```bash
+npm run storybook:build
+```
+
+
+### Tooling configs
+
+For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
+
+If you customize the configuration a lot, you can consider moving them to individual files.
+
+### Local Demo with `es-dev-server`
+```bash
+npm start
+```
+To run a local development server that serves the basic demo located in `demo/index.html`
+
 ## Pain Points and Future Work
 
 ### Shared Styles
@@ -115,7 +151,7 @@ The two ways of passing data to a UI library -- through attributes/properties or
   title: 'Analytics',
   description: 'Get a better understanding of where your traffic is coming from.',
   link: '#',
-  icon: '/src/assets/img/analytics.svg'
+  icon: '/assets/img/analytics.svg'
 }
 ```
 

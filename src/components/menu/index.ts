@@ -1,9 +1,10 @@
-import { html, component, useState } from 'haunted'
+import { html, useState } from 'haunted'
 import './mobile'
 import './entry'
 import buttonElement from '../button'
+import MenuInterface from '../../interfaces/menu'
 
-const Menu = ({ entries, buttons }) => {
+export default function Menu ({ entries = [], buttons = [] }: MenuInterface) {
   const [active, setActive] = useState(-1)
   const [mobileOpen, setMobileOpen] = useState(false)
   return html`
@@ -14,7 +15,7 @@ const Menu = ({ entries, buttons }) => {
         <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div class="lg:w-0 lg:flex-1">
             <a href="#" class="flex">
-              <img class="h-8 w-auto sm:h-10" src="/src/assets/img/workflow-mark-on-white.svg" alt="Workflow" />
+              <img class="h-8 w-auto sm:h-10" src="/assets/img/workflow-mark-on-white.svg" alt="Workflow" />
             </a>
           </div>
           <div class="-mr-2 -my-2 md:hidden">
@@ -25,9 +26,9 @@ const Menu = ({ entries, buttons }) => {
             </button>
           </div>
           <nav class="hidden md:flex space-x-10">
-            ${entries.map(({ name, entries, footer, link }, i) => html`
+            ${entries.map(({ title, entries, footer, link }, i) => html`
               <tw-menu-entry
-                .name=${name}
+                .title=${title}
                 .active=${active === i}
                 .entries=${entries}
                 .footer=${footer}
@@ -46,5 +47,3 @@ const Menu = ({ entries, buttons }) => {
     </div>
   `
 }
-
-customElements.define('tw-menu', component(Menu))

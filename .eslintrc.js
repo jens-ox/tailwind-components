@@ -1,20 +1,23 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true
-  },
+  root: true,
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'import', 'html'],
   extends: [
-    'standard'
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'standard',
+    'plugin:import/errors',
+    'plugin:import/warnings',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
-  },
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module'
-  },
   rules: {
+    // disable the rule for all files
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'import/named': 'off',
+    'import/no-unresolved': 'off'
+  },
+  globals: {
+    'CustomEvent': false
   }
-}
+};

@@ -1,7 +1,11 @@
-import { html, component } from 'haunted'
+import { html } from 'haunted'
 import './mobile-link'
 
-function MobileMenu ({ open }) {
+interface MobileInterface {
+  open: boolean;
+}
+
+export function MobileMenu ({ open }: MobileInterface) {
   const event = new CustomEvent('close')
 
   return html`
@@ -26,7 +30,7 @@ function MobileMenu ({ open }) {
           <div class="pt-5 pb-6 px-5 space-y-6">
             <div class="flex items-center justify-between">
               <div>
-                <img class="h-8 w-auto" src="/src/assets/img/workflow-mark-on-white.svg" alt="Workflow" />
+                <img class="h-8 w-auto" src="/assets/img/workflow-mark-on-white.svg" alt="Workflow" />
               </div>
               <div class="-mr-2">
                 <button @click=${() => this.dispatchEvent(event)} type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -132,5 +136,3 @@ function MobileMenu ({ open }) {
     </div>
   `
 }
-
-customElements.define('tw-menu-mobile', component(MobileMenu))

@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "tags": [
+    {
+      "name": "tw-menu",
+      "description": "Tailwind UI header menu",
+      "properties": [
+        {
+          "name": "entries",
+          "type": "Array",
+          "description": "Array of menu entries",
+          "default": []
+        },
+        {
+          "name": "buttons",
+          "type": "Array",
+            "description": "Array of buttons",
+          "default": []
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": [
+        {
+          "name": "--tailwind-components-text-color",
+          "description": "Main Text Color",
+          "type": "Color"
+        }
+      ]
+    }
+  ]
+}

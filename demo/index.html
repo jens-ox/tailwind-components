@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
- 
-<head>
+<!doctype html>
+<html lang="en-GB">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible"content="ie=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,8 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css">
     <title>Tailwind Components</title>
 </head>
- 
 <body>
-  <tw-example-menu></tw-example-menu>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'haunted'
+    import '../dist/tailwind-components.js'
+    import menuData from '../structure/menu'
+    render(
+      html`
+            <tw-menu .entries=${menuData.entries} .buttons=${menuData.buttons}>
+            </tw-menu>
+          `,
+      document.querySelector('#demo')
+    )
+  </script>
 </body>
 </html>
