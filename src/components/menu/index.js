@@ -7,12 +7,43 @@ const menuData = [{
   entries: [{
     name: 'Analytics',
     description: 'Get a better understanding of where your traffic is coming from.',
-    icon: '/src/assets/img/analytics.svg'
+    icon: '/src/assets/img/analytics.svg',
+    link: '#'
+  }, {
+    name: 'Engagement',
+    description: 'Speak directly to your customers in a more meaningful way.',
+    icon: '/src/assets/img/engagement.svg',
+    link: '#'
+  }, {
+    name: 'Security',
+    description: 'Your customer\'s data will be safe and secure.',
+    icon: '/src/assets/img/security.svg',
+    link: '#'
+  }, {
+    name: 'Integrations',
+    description: 'Connect with third-party tools that you\'re already using.',
+    icon: '/src/assets/img/integrations.svg',
+    link: '#'
+  }, {
+    name: 'Automations',
+    description: 'Build strategic funnels that will drive your customers to convert',
+    icon: '/src/assets/img/automations.svg',
+    link: '#'
   }],
-  footerLinks: [{
-    name: 'Watch Demo',
-    icon: '/src/assets/img/watch-demo.svg'
-  }]
+  footer: {
+    entries: [{
+      name: 'Watch Demo',
+      icon: '/src/assets/img/watch-demo.svg',
+      link: '#'
+    }, {
+      name: 'Contact Sales',
+      icon: '/src/assets/img/contact-sales.svg',
+      link: '#'
+    }]
+  }
+}, {
+  name: 'Pricing',
+  link: '#'
 }]
 
 const Menu = () => {
@@ -37,7 +68,16 @@ const Menu = () => {
             </button>
           </div>
           <nav class="hidden md:flex space-x-10">
-            <tw-menu-entry name="Teest" .active=${active === 0} @toggle=${() => setActive(active === 0 ? -1 : 0)}></tw-menu-entry>
+            ${menuData.map(({ name, entries, footer, link }, i) => html`
+              <tw-menu-entry
+                .name=${name}
+                .active=${active === i}
+                .entries=${entries}
+                .footer=${footer}
+                .link=${link}
+                @toggle=${() => setActive(active === i ? -1 : i)}
+              ></tw-menu-entry>
+            `)}
 
             <div class="relative">
               <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->

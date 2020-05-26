@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@iconfu/svg-inject": "^1.2.3",
     "haunted": "^4.7.0"
   }
 }
