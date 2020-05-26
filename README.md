@@ -1,6 +1,6 @@
 # Tailwind Components
 
-First of all, this is more of an experiment. Obviously, only the Tailwind UI components with publicly available source are considered here.
+First of all, this is more of an experiment. Obviously, only the Tailwind UI components with publicly available source are considered here. Actually, this is currently only the [header example](https://tailwindui.com/components/marketing/elements/headers).
 
 In the [Full-Stack Developer job post](https://jobs.tailwindui.com/full-stack-developer), one of the tasks is building official Tailwind UI components for React and Vue. Why not leverage Web Components? [According to custom-elements-everywhere](https://custom-elements-everywhere.com/), Web Components are starting to become natively usable in most frontend frameworks (or libraries).
 
@@ -65,3 +65,7 @@ For now, SVGInject is used. A native solution would be nicer.
 ### TypeScript
 
 UI libraries heavily rely on passing quite complex objects around. Having type support for those is nice.
+
+## Credits
+
+All credit goes to @adamwathan and @sschoger for creating TailwindCSS and TailwindUI. I'm really grateful for those tools making frontend development so much more enjoyable.
